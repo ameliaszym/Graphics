@@ -57,14 +57,34 @@ const Square = function () {
 
     let squareVerts = [
          // Pierwszy trójkąt
-        -0.5, 0.5,   1.0, 0.0, 0.0,  
-        -0.5, -0.5,  0.0, 1.0, 0.0,  
-        0.5, 0.5,    0.0, 0.0, 1.0,  
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        0.0, 0.5,  0.0, 1.0, 0.0,  
+        0.433, 0.25,    0.0, 0.0, 1.0,  
 
         // Drugi trójkąt
-        -0.5, -0.5,  0.0, 1.0, 0.0,  
-        0.5, -0.5,   0.0, 0.0, 1.0,  
-        0.5, 0.5,    1.0, 0.0, 0.0   
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        0.433, 0.25,    0.0, 0.0, 1.0,  
+        0.433, -0.25,    0.0, 0.0, 1.0, 
+
+        // Trzeci trójkąt
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        0.0, -0.5,    0.0, 0.0, 1.0,  
+        0.433, -0.25,    0.0, 0.0, 1.0, 
+
+        // czwarty trójkąt
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        0.0, -0.5,    0.0, 0.0, 1.0,  
+        -0.433, -0.25,    0.0, 0.0, 1.0, 
+
+        // piaty trójkąt
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        -0.433, 0.25,    0.0, 0.0, 1.0,  
+        -0.433, -0.25,    0.0, 0.0, 1.0, 
+
+        // szosty trójkąt
+        0.0, 0.0,   1.0, 0.0, 0.0,  
+        -0.433, 0.25,    0.0, 0.0, 1.0,  
+        0.0, 0.5,    0.0, 0.0, 1.0, 
     ];
 
     const triangleVertBuffer = gl.createBuffer();
@@ -96,7 +116,7 @@ const Square = function () {
     // render time
 
     gl.useProgram(program);
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    gl.drawArrays(gl.TRIANGLES, 0, 18);
 
 } 
 
@@ -138,5 +158,5 @@ function changeColor() {
     gl.uniform3fv(colorUniformLocation, newColor);
 
     gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    gl.drawArrays(gl.TRIANGLES, 0, 18);
 }
